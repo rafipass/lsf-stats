@@ -40,7 +40,7 @@ an HPC cluster running lsf
 
 cputime "ulimit" of "unlimited" on the node you run this daemon on (otherwise it will die after your time expires...)
 
-### Special Requirements
+### Special Requirements and Considerations
 You may notice some reliability issues with the rendering of graphs or establishing connections with the plot.ly api. We are working with the plot.ly team to resolve these issues. 
 
 This needs to be run on a webfacing node.
