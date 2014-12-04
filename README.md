@@ -31,7 +31,7 @@ When a client accesses the webpage, they pull from plot.ly's servers - not yours
 ### Prerequisites
 
 *  python 2.6 or 2.7
-*  node.js 0.10.3x
+*  node.js >= 0.10.2x
 *  an HPC cluster running lsf
 *  cputime "ulimit" of "unlimited" on the node you run this daemon on (otherwise it will die after your time expires...)
 
