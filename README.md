@@ -2,7 +2,7 @@ Display lsf resource utilization statistics using with live scattergraphs and hi
 
 ### Install
 
-1)
+1)\
 ```
 make
 ```
