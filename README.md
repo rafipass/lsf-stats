@@ -41,10 +41,12 @@ an HPC cluster running lsf
 cputime "ulimit" of "unlimited" on the node you run this daemon on (otherwise it will die after your time expires...)
 
 ### Special Requirements
+You may notice some reliability issues with the rendering of graphs or establishing connections with the plot.ly api. We are working with the plot.ly team to resolve these issues. 
 
 This needs to be run on a webfacing node.
 It will use a small to moderate amount of system resouces and open up 16 node.js servers that push data to plot.ly's servers.
 Please mind your resource usage.
+
 Errors may be the result of your system not giving you enough resources. 
 
 If you notice you're having trouble forking after running lsf-stats, please run ask your system admin for additional resources on the node you chose to run this service on.
