@@ -1,5 +1,6 @@
 #lsf-stats
 *lsf-stats* displays resource utilization statistics for clusers using IBM's Platform Load Sharing Facility (LSF)  with real-time scattergraphs and historiograms.
+
 These live graphs are viewable in a web-browser. 
 
 This application was built using [plot.ly](https://plot.ly), [node.js](http://nodejs.org/), [python](https://python.org), and the [LSF](https://github.com/PlatformLSF/platform-python-lsf-api) api.
