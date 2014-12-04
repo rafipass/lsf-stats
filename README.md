@@ -7,12 +7,13 @@ This application was built using [plot.ly](https://plot.ly), [node.js](http://no
 
 ### Install
 
-
-   ```
-   make
-   ```
+1)
+```
+make
+```
 
 2)
+
 Open web/config.json and  replace all the tokens and api keys with your own values.
 You will need to create 16 new tokens. 
 
@@ -33,13 +34,10 @@ When a client accesses the webpage, they pull from plot.ly's servers - not yours
 
 ### Prerequisites
 
-python 2.6 or 2.7
-
-node.js 0.10.3x
-
-an HPC cluster running lsf
-
-cputime "ulimit" of "unlimited" on the node you run this daemon on (otherwise it will die after your time expires...)
+*  python 2.6 or 2.7
+*  node.js 0.10.3x
+*  an HPC cluster running lsf
+*  cputime "ulimit" of "unlimited" on the node you run this daemon on (otherwise it will die after your time expires...)
 
 ### Special Requirements and Considerations
 You may notice some reliability issues with the rendering of graphs or establishing connections with the plot.ly api. We are working with the plot.ly team to resolve these issues. 
