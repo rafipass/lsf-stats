@@ -1,0 +1,5 @@
+#!/bin/bash
+SCRIPT=$BASH_SOURCE
+SCRIPTPATH=$(dirname "$SCRIPT")
+source $SCRIPTPATH/lsf_env/bin/activate
+python $SCRIPTPATH/lsf.py "$@"
