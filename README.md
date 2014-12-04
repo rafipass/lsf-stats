@@ -56,3 +56,8 @@ ulimit -a
 ```
 
 will help you see what your resource limits are.
+
+####Credits
+If you use any of this code for research, please give the authors credit and let us know!
+Thanks :)
+
