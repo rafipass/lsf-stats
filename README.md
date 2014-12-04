@@ -46,8 +46,4 @@ Errors may be the result of your system not giving you enough resources.
 
 If you notice you're having trouble forking after running lsf-stats, please run ask your system admin for additional resources on the node you chose to run this service on.
 
-```
-ulimit -a
-```
-
-will help you see what your resource limits are.
+```ulimit -a``` will help you see what your resource limits are.
