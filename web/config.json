@@ -1,0 +1,7 @@
+{
+  "user" : "",
+  "apikey" : "",
+  "lsf_fields": ["mem_avg","total_jobs","pending_jobs","running_jobs","hosts/processers","threads","mem","pending_time_avg"],
+  "tokens" : ["","","","","","","","","","","","","","","",""],
+  "_comment": "get your tokens and keys here:  https://plot.ly/settings/api"
+}

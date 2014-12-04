@@ -1,0 +1,7 @@
+#!/bin/bash
+while true; do
+  ../lsf_bindings/get-lsf-stats --all 1> .tmp.json 2>> error.log
+  cat .tmp.json > lsfdata.json
+
+done  
+

@@ -1,0 +1,6 @@
+*.pyc
+*.out
+*.log
+*.err
+*.nfs*
+lsf_env

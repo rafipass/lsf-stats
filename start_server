@@ -1,0 +1,38 @@
+#!/bin/bash
+#cleanup first
+if [ $# -lt 1 ]; then
+    echo "usage: start_streaming <static_dir>"
+    exit -1
+fi
+dev=0
+if [ $# -eq 2 ]; then
+    if [ $2 == "--dev" ]; then
+	echo "Starting in \"dev\" mode, not killing existing instances of server"
+        dev=1
+    fi
+fi
+
+cd web
+rm urls.json -rf
+
+if [ $dev == 0 ]; then  
+    killall grab_data
+    killall node
+fi
+
+echo "Starting lsf daemon"
+nohup ./grab_data &
+sleep 3
+echo "Starting nodejs pushers"
+for i in `seq 0 15`;
+do
+  nohup node init-stream.js $i &  
+  echo "STARTING STREAM $i"
+  sleep 5
+done  
+echo "Copying static files"
+sleep 10
+cd ../
+python web/generate_html.py > $1/index.html
+echo "static file written to $1/index.html"
+echo "lsf-stats is started!"

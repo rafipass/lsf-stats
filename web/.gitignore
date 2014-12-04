@@ -1,0 +1,8 @@
+realconfig
+lsfdata.json
+.tmp.json
+urls.json
+node_modules
+*.out
+*.err
+*.log

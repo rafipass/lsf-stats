@@ -1,0 +1,7 @@
+#!/bin/bash
+cd web
+rm urls.json -rf
+killall grab_data 2> /dev/null
+killall grab_data 2> /dev/null
+killall node  2> /dev/null
+killall node  2> /dev/null

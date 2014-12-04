@@ -1,0 +1,21 @@
+{
+  "name": "lsf-stats",
+  "version": "0.1.0",
+  "description": "realtime graphs of lsf utilization data",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/passrafi/lsf-stats.git"
+  },
+  "keywords": [
+    "lsf",
+    "real-time",
+    "visualization"
+  ],
+  "author": "Rafael Castellanos <rafael (аt) rafstone (dоt) c>, Mondale Wang <mondale.tw  (аt) gmail  (dоt) com ",
+  "license": "Apache",
+  "dependencies": {
+    "plotly": "0.2.13",
+
+    "readable-stream": "1.0.33"
+  }
+}
