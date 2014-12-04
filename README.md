@@ -1,4 +1,8 @@
-Display lsf resource utilization statistics using with live scattergraphs and historiograms using node.js, python, and the lsf api.
+#lsf-stats
+*lsf-stats* displays resource utilization statistics for clusers using IBM's Platform Load Sharing Facility (LSF)  with real-time scattergraphs and historiograms.
+These live graphs are viewable in a web-browser. 
+
+This application was built using plot.ly node.js, python, and the lsf api.
 
 ### Install
 
