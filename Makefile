@@ -4,7 +4,7 @@ all: python_lsf_api argparse web_install
 	
 web_install: 
 	cd web && npm install .
-
+	cd web && git update-index --assume-unchanged config.json
 pip:
 ifndef PIP_VERSION
 	wget --no-check-certificate http://bootstrap.pypa.io/get-pip.py
