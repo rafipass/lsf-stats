@@ -7,10 +7,10 @@ This application was built using [plot.ly](https://plot.ly), [node.js](http://no
 
 ### Install
 
-1)
-```
-make
-```
+
+   ```
+   make
+   ```
 
 2)
 Open web/config.json and  replace all the tokens and api keys with your own values.
