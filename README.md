@@ -2,11 +2,13 @@ Display lsf resource utilization statistics using with live scattergraphs and hi
 
 ### Install
 
+1)
 ```
 make
 ```
 
-open web/config.json and  replace all the tokens and api keys with your own values.
+2)
+Open web/config.json and  replace all the tokens and api keys with your own values.
 You will need to create 16 new tokens. 
 
 You can get keys and create tokens here: https://plot.ly/settings/api
