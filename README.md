@@ -47,6 +47,6 @@ If you notice you're having trouble forking after running lsf-stats, please run 
 
 ### Known Issues
 *  Graphs randomly fail to render in the web-browser (and produce different types of errors)
-*  Initialization connections with the plot.ly api fail randomly (ussually returns a 200 error).
+*  Initialization connections with the plot.ly api randomly fail (ussually returning a 200 error).
 
 We are working with the plot.ly team to resolve these issues. 
