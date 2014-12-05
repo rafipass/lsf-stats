@@ -22,35 +22,15 @@ function ReadData () {
 
   if (!(this instanceof ReadData))
     return new ReadData(opt);
-
-
   Readable.call(this, opt)
-
   var self = this
   self._destroyed = false
   self.iv = null
-
-  var tdelta = 1500
-    , hz = opt.hz || 1000 / (20 * tdelta) // seconds
-    , amp = opt.amp || 1
-    , noiseHz = opt.noiseHz || 4 * hz
-    , noiseAmp = opt.noiseAmp || 0.3 * amp
-    , trendIV = opt.trendIV || (1000 * 1 / hz) // milliseconds
-    , lowtrend = opt.lowtrend || -amp
-    , hightrend = opt.hightrend || amp
-    , sep = (typeof(opt.sep) === 'string') ? opt.sep : "\n"
-    , timeFormatter = opt.timeFormatter || getTimeString
-
-  hz *= 2 * Math.PI // compute once here for later ts computations
-  noiseHz *= 2 * Math.PI
-
-
-  if (self.trendIV < 2 * self.tdelta)
-    throw new Error("trendIV must be greater than 2*tdelta")
-
+  var tdelta = 1500,
+      sep = (typeof(opt.sep) === 'string') ? opt.sep : "\n",
+      timeFormatter = opt.timeFormatter || getTimeString
 
   startSignal()
-
 
   function startSignal () {
     var last = 0
@@ -60,26 +40,27 @@ function ReadData () {
     self.iv = setInterval(function () {
       try {
         fs.readFile('lsfdata.json', 'utf8', function (err, data) {
-          if (err)
+          if (err) {
             self.push(sep);
             return
+          }
           var x, y, lsfdata
           if (!data || data.length < 20) {
             self.push(sep);
             return
           }
-          try{
+          try {
             lsfdata = JSON.parse(data)
-          }catch(e){
+          } catch(e) {
             self.push(sep);
             return
           }
           var all_users = lsfdata[lsf_field]['users']['all_users']
-          if (all_users == 0 && lsf_field != 'pending_jobs')
+          if (all_users == 0 && lsf_field != 'pending_jobs') {
             // bad datapoint - send a heartbeat instead of data
             self.push(sep);
             return
-          if (type == 'scat') {
+          } if (type == 'scat') {
             y = all_users
             var now = new Date()
               , ts = now.getTime()
@@ -109,13 +90,6 @@ function ReadData () {
       }
     }, tdelta)
   }
-
-  function generateSignal (ts, trend) {
-    var y = amp * Math.sin(hz * ts)
-      , noise = randNoiseAmp() * Math.sin(noiseHz * ts)
-    return y + noise + trend
-  }
-
 }
 
 util.inherits(ReadData, Readable)
