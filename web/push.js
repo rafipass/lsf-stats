@@ -71,7 +71,8 @@ function ReadData () {
           }catch(e){return}
           var all_users = lsfdata[lsf_field]['users']['all_users']
           if (all_users == 0 && lsf_field != 'pending_jobs')
-          // bad datapoint skip
+           // bad datapoint - send a heartbeat instead of data
+            self.push(sep);
             return
           if (type == 'scat') {
             y = all_users
