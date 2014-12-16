@@ -59,7 +59,6 @@ _copied_attributes_ = {
     
     #used only in this file
     'numExHosts':'numExHosts',
-    'runRusage':'runRusage',
 }
     
 _not_copied_attributes_ = {
@@ -138,6 +137,7 @@ _not_copied_attributes_ = {
     'resizeMin':'resizeMin',
     'resizeReqTime':'resizeReqTime',
     'rsvInActive':'rsvInActive',
+    'runRusage':'runRusage',
     'serial_job_energy':'serial_job_energy',
     'srcCluster':'srcCluster',
     'srcJobId':'srcJobId',
@@ -189,8 +189,15 @@ class JobInfo ():
         #define LSF_RLIMIT_THREAD   11           /* thread number limit (introduced in LSF6.0) */
         #define LSF_RLIM_NLIMITS    12           /* number of resource limits */
 
+    def _copy_rusage_(self,lsf_job):
+        self.__dict__['runRusage']= {
+                'mem':          copy.deepcopy(lsf_job.runRusage.mem),
+                'nthreads':     copy.deepcopy(lsf_job.runRusage.nthreads),
+                'utime':        copy.deepcopy(lsf_job.runRusage.utime)
+                }
 
-    _specially_copied_attributes_ = {'submit':_copy_submit_}
+
+    _specially_copied_attributes_ = {'submit':_copy_submit_,'runRusage':_copy_rusage_}
     
     #Job related information
     def __init__(self, lsf_job):
@@ -351,8 +358,8 @@ def lsf_stats():
             #running jobs
             increment('running_jobs',job.user)
             increment('hosts/processers',job.user,job.numExHosts)
-            increment('threads',job.user,job.runRusage.nthreads)
-            increment('mem',job.user,int(job.runRusage.mem/1024))
+            increment('threads',job.user,job.runRusage['nthreads'])
+            increment('mem',job.user,int(job.runRusage['mem']/1024))
             increment('mem_avg', job.user, int(job.mem_avg/1024))
     
     if not user_stats:
