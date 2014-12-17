@@ -1,5 +1,5 @@
 #lsf-stats
-*lsf-stats* displays resource utilization statistics for clusers using IBM's Platform Load Sharing Facility (LSF)  with real-time scattergraphs and historiograms.
+*lsf-stats* displays resource utilization statistics for clusters using IBM's Platform Load Sharing Facility (LSF)  with real-time scattergraphs and historiograms.
 
 These live graphs are viewable in a web-browser. 
 
